@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep Awake | Keep the computer awake while in page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark background-enabled py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          Keep <span class="highlight-text">Awake</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse align-items-center justify-content-end"
+          id="navbarNavAltMarkup"
+        >
+          <ul class="navbar-nav gap-5">
+            <li class="nav-item">
+              <button type="button" class="btn btn-link nav-link">About</button>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://github.com/CarolinaMoraes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="devicon-github-original"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="hero-section"
+      class="info-hero container-fluid background-enabled text-center"
+    >
+      <div class="container">
+        <div class="info-box container-md mx-auto">
+          <h1>
+            The screen is currently
+            <span id="screen-status" class="highlight-text">Awake</span>
+          </h1>
+          <p>
+            This website prevents your device from going into sleep mode. Use
+            the switch below to turn on/off this feature:
+          </p>
+          <div class="form-check form-switch mx-auto py-4">
+            <input
+              class="form-check-input py-4 px-5"
+              type="checkbox"
+              id="keep-awake-switch"
+              checked
+            />
+          </div>
+        </div>
+        <p class="info-disclaimer mx-auto">
+          This website only prevents your device from sleeping if it's in a
+          <span class="highlight-text">foreground</span> tab. If it's in the
+          foreground you can even minimize it
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="./dist/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

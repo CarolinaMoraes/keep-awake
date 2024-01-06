@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --highlight-green: #49d49d;
+  --highlight-blue: #008dd5;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--highlight-green);
+  border-color: var(--highlight-green);
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.highlight-text {
+  color: var(--highlight-green);
+  font-weight: 800;
+}
+
+.secondary-highlight-text {
+  color: var(--highlight-blue);
+  font-weight: 800;
+}
+
+.background-enabled {
+  background-color: #22242a;
+}
+
+.background-disabled {
+  background-color: #3e424d;
+}
+
+.navbar-brand {
+  font-size: 32px;
+}
+
+.navbar i {
+  color: #fff;
+  font-size: 32px;
+}
+
+.info-hero {
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.info-box {
+  transform: translateY(-50%);
+  max-width: 35vw;
+  min-width: 300px;
+}
+
+.info-box p {
+  font-size: 1.2rem;
+}
+
+.info-box .form-check {
+  width: min-content;
+}
+
+.info-disclaimer {
+  margin-top: 45px;
+  width: 40vw;
+  min-width: 300px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

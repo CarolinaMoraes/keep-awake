@@ -1,8 +1,11 @@
+import { NoSleep } from "./nosleep/NoSleep.js";
+
 let heroSection: HTMLElement | null = null;
 let navbar: HTMLElement | null = null;
 let highlightTexts: HTMLElement[] | null = null;
 let statusText: HTMLElement | null = null;
 
+let noSleep = new NoSleep();
 function changeSwitch(event: Event): void {
   const { target } = event;
   if (target && "checked" in target && typeof target.checked === "boolean") {
@@ -14,7 +17,9 @@ function changeSwitch(event: Event): void {
 
 function changeBackground(checked: boolean): void {
   if (heroSection && navbar && highlightTexts) {
+    console.log(noSleep);
     if (checked) {
+      noSleep.enable();
       addRemoveClassesOfMultipleElements({
         toAdd: {
           "background-enabled": [navbar, heroSection],
@@ -26,6 +31,7 @@ function changeBackground(checked: boolean): void {
         },
       });
     } else {
+      noSleep.disable();
       addRemoveClassesOfMultipleElements({
         toAdd: {
           "background-disabled": [navbar, heroSection],
@@ -76,21 +82,14 @@ function addRemoveClassesOfMultipleElements(
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  if ("wakeLock" in navigator) {
-    console.log("Wake Lock API is supported");
-  } else {
-    console.log("Wake Lock is not supported");
-  }
-
-  const switchElement: HTMLElement | null =
-    document.getElementById("keep-awake-switch");
-
+  console.log(NoSleep);
   heroSection = document.getElementById("hero-section");
   navbar = document.getElementById("navbar");
   highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
   statusText = document.getElementById("screen-status");
 
-  console.log(highlightTexts);
+  const switchElement: HTMLElement | null =
+    document.getElementById("keep-awake-switch");
 
   if (switchElement) {
     switchElement.addEventListener("change", changeSwitch);

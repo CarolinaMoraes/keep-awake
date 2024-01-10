@@ -1,25 +1,23 @@
-import { NoSleep } from "./nosleep/NoSleep.js";
+import stayAwake from "./stayawake/stayAwakeModule.js";
 
 let heroSection: HTMLElement | null = null;
 let navbar: HTMLElement | null = null;
 let highlightTexts: HTMLElement[] | null = null;
 let statusText: HTMLElement | null = null;
 
-let noSleep = new NoSleep();
 function changeSwitch(event: Event): void {
   const { target } = event;
   if (target && "checked" in target && typeof target.checked === "boolean") {
     const { checked } = target;
     changeBackground(checked);
     changeStatusText(checked);
+    checked ? stayAwake.enable() : stayAwake.disable();
   }
 }
 
 function changeBackground(checked: boolean): void {
   if (heroSection && navbar && highlightTexts) {
-    console.log(noSleep);
     if (checked) {
-      noSleep.enable();
       addRemoveClassesOfMultipleElements({
         toAdd: {
           "background-enabled": [navbar, heroSection],
@@ -31,7 +29,6 @@ function changeBackground(checked: boolean): void {
         },
       });
     } else {
-      noSleep.disable();
       addRemoveClassesOfMultipleElements({
         toAdd: {
           "background-disabled": [navbar, heroSection],
@@ -48,7 +45,7 @@ function changeBackground(checked: boolean): void {
 
 function changeStatusText(checked: boolean): void {
   if (statusText) {
-    statusText.innerText = checked ? "Awake" : "Asleep";
+    statusText.innerText = checked ? "Awake" : "Almost sleepy";
   }
 }
 
@@ -82,16 +79,18 @@ function addRemoveClassesOfMultipleElements(
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log(NoSleep);
   heroSection = document.getElementById("hero-section");
   navbar = document.getElementById("navbar");
-  highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
+  highlightTexts = Array.from(
+    document.querySelectorAll(".secondary-highlight-text")
+  );
   statusText = document.getElementById("screen-status");
 
   const switchElement: HTMLElement | null =
     document.getElementById("keep-awake-switch");
 
   if (switchElement) {
+    stayAwake.init();
     switchElement.addEventListener("change", changeSwitch);
   }
 });

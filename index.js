@@ -3,14 +3,16 @@ var heroSection = null;
 var navbar = null;
 var highlightTexts = null;
 var statusText = null;
+var favicon = null;
 var nosleep = new NoSleep();
 function changeSwitch(event) {
     var target = event.target;
     if (target && "checked" in target && typeof target.checked === "boolean") {
         var checked = target.checked;
+        checked ? nosleep.enable() : nosleep.disable();
         changeBackground(checked);
         changeStatusText(checked);
-        checked ? nosleep.enable() : nosleep.disable();
+        changeFavicon(checked);
     }
 }
 function changeBackground(checked) {
@@ -46,6 +48,11 @@ function changeStatusText(checked) {
         statusText.innerText = checked ? "Awake" : "Almost sleepy";
     }
 }
+function changeFavicon(checked) {
+    if (favicon && "href" in favicon) {
+        favicon.setAttribute("href", checked ? "./favicon/favicon_green.ico" : "./favicon/favicon_blue.ico");
+    }
+}
 function addRemoveClassesOfMultipleElements(classes) {
     if (classes === null || classes === void 0 ? void 0 : classes.toAdd) {
         var _loop_1 = function (classToAdd) {
@@ -73,6 +80,7 @@ window.addEventListener("DOMContentLoaded", function () {
     navbar = document.getElementById("navbar");
     highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
     statusText = document.getElementById("screen-status");
+    favicon = document.getElementById("web-icon");
     var switchElement = document.getElementById("keep-awake-switch");
     if (switchElement) {
         nosleep.enable();

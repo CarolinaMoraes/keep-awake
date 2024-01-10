@@ -4,15 +4,20 @@ let heroSection: HTMLElement | null = null;
 let navbar: HTMLElement | null = null;
 let highlightTexts: HTMLElement[] | null = null;
 let statusText: HTMLElement | null = null;
+let favicon: HTMLElement | null = null;
+
 let nosleep = new NoSleep();
 
 function changeSwitch(event: Event): void {
   const { target } = event;
   if (target && "checked" in target && typeof target.checked === "boolean") {
     const { checked } = target;
+
+    checked ? nosleep.enable() : nosleep.disable();
+
     changeBackground(checked);
     changeStatusText(checked);
-    checked ? nosleep.enable() : nosleep.disable();
+    changeFavicon(checked);
   }
 }
 
@@ -50,6 +55,15 @@ function changeStatusText(checked: boolean): void {
   }
 }
 
+function changeFavicon(checked: boolean): void {
+  if (favicon && "href" in favicon) {
+    favicon.setAttribute(
+      "href",
+      checked ? "./favicon/favicon_green.ico" : "./favicon/favicon_blue.ico"
+    );
+  }
+}
+
 interface ToAddAndRemove {
   [key: string]: HTMLElement[];
 }
@@ -84,6 +98,8 @@ window.addEventListener("DOMContentLoaded", () => {
   navbar = document.getElementById("navbar");
   highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
   statusText = document.getElementById("screen-status");
+
+  favicon = document.getElementById("web-icon");
 
   const switchElement: HTMLElement | null =
     document.getElementById("keep-awake-switch");

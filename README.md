@@ -1,5 +1,5 @@
 
-# Keep Awake
+# Keep Awake (It's not working correctly yet) 
 
 Tiny static website to keep the device's screen awake. Same purpose of https://nosleep.page/ but now with some colors that don't hurt the eye so much. The website uses https://github.com/jamesbachini/StayAwake.js to keep a video executing in the background of the page preventing the screen from turning off.
 
@@ -7,7 +7,6 @@ Tiny static website to keep the device's screen awake. Same purpose of https://n
 ## Live
 
 Currently you can find this page at https://carolinamoraes.github.io/keep-awake
-
 
 ## Running the app locally
 

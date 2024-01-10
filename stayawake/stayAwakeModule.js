@@ -25,8 +25,6 @@ const stayAwakeModule = {
   init: function () {
     // Set up stay awake video element
     this.stayAwakeVideo = document.createElement("video");
-    this.stayAwakeVideo.setAttribute.id = "devil";
-    console.log(this.stayAwakeVideo);
     if (typeof document.hidden !== "undefined") {
       this.stayAwakeVideo.setAttribute("hidden", "hidden");
       this.stayAwakeVideo.setAttribute("visibilitychange", "visibilitychange");
@@ -62,6 +60,7 @@ const stayAwakeModule = {
         });
       }
     });
+    document.body.appendChild(this.stayAwakeVideo);
   },
 
   enable: function () {

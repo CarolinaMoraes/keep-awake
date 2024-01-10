@@ -1,15 +1,16 @@
-import stayAwake from "./stayawake/stayAwakeModule.js";
+import NoSleep from "./nosleep/nosleep.js";
 var heroSection = null;
 var navbar = null;
 var highlightTexts = null;
 var statusText = null;
+var nosleep = new NoSleep();
 function changeSwitch(event) {
     var target = event.target;
     if (target && "checked" in target && typeof target.checked === "boolean") {
         var checked = target.checked;
         changeBackground(checked);
         changeStatusText(checked);
-        checked ? stayAwake.enable() : stayAwake.disable();
+        checked ? nosleep.enable() : nosleep.disable();
     }
 }
 function changeBackground(checked) {
@@ -70,11 +71,11 @@ function addRemoveClassesOfMultipleElements(classes) {
 window.addEventListener("DOMContentLoaded", function () {
     heroSection = document.getElementById("hero-section");
     navbar = document.getElementById("navbar");
-    highlightTexts = Array.from(document.querySelectorAll(".secondary-highlight-text"));
+    highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
     statusText = document.getElementById("screen-status");
     var switchElement = document.getElementById("keep-awake-switch");
     if (switchElement) {
-        stayAwake.init();
+        nosleep.enable();
         switchElement.addEventListener("change", changeSwitch);
     }
 });

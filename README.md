@@ -1,8 +1,6 @@
+# Keep Awake (It's not working correctly yet)
 
-# Keep Awake (It's not working correctly yet) 
-
-Tiny static website to keep the device's screen awake. Same purpose of https://nosleep.page/ but now with some colors that don't hurt the eye so much. The website uses https://github.com/jamesbachini/StayAwake.js to keep a video executing in the background of the page preventing the screen from turning off.
-
+Tiny static website to keep the device's screen awake. Same purpose of https://nosleep.page/ but now with some colors that don't hurt the eye so much. The website uses https://github.com/richtr/NoSleep.js to keep eiter a Wake Lock or a hidden video playing in the background (depends on the device's support of the Wake Lock API)
 
 ## Live
 
@@ -19,4 +17,3 @@ Run the tsc watcher to keep watching modifications on the ts files
 ```
 
 Access the index.html through the [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VS Code extension (that's my preference, but you can do this any way you desire)
-

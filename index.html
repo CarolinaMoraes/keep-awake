@@ -21,11 +21,11 @@
   <body>
     <nav
       id="navbar"
-      class="navbar navbar-expand-lg navbar-dark background-disabled py-3"
+      class="navbar navbar-expand-lg navbar-dark background-enabled py-3"
     >
       <div class="container">
         <a class="navbar-brand" href="#">
-          Keep <span class="secondary-highlight-text">Awake</span>
+          Keep <span class="highlight-text">Awake</span>
         </a>
         <button
           class="navbar-toggler"
@@ -63,15 +63,13 @@
 
     <div
       id="hero-section"
-      class="info-hero container-fluid background-disabled text-center"
+      class="info-hero container-fluid background-enabled text-center"
     >
       <div class="container">
         <div class="info-box container-md mx-auto">
           <h1>
             The screen is currently
-            <span id="screen-status" class="secondary-highlight-text"
-              >Almost sleepy</span
-            >
+            <span id="screen-status" class="highlight-text">Awake</span>
           </h1>
           <p>
             This website prevents your device from going into sleep mode. Use
@@ -82,13 +80,14 @@
               class="form-check-input py-4 px-5"
               type="checkbox"
               id="keep-awake-switch"
+              checked
             />
           </div>
         </div>
         <p class="info-disclaimer mx-auto">
           This website only prevents your device from sleeping if it's in a
-          <span class="secondary-highlight-text">foreground</span> tab. If it's
-          in the foreground you can even minimize it
+          <span class="highlight-text">foreground</span> tab. If it's in the
+          foreground you can even minimize it
         </p>
       </div>
     </div>

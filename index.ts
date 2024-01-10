@@ -1,9 +1,10 @@
-import stayAwake from "./stayawake/stayAwakeModule.js";
+import NoSleep from "./nosleep/nosleep.js";
 
 let heroSection: HTMLElement | null = null;
 let navbar: HTMLElement | null = null;
 let highlightTexts: HTMLElement[] | null = null;
 let statusText: HTMLElement | null = null;
+let nosleep = new NoSleep();
 
 function changeSwitch(event: Event): void {
   const { target } = event;
@@ -11,7 +12,7 @@ function changeSwitch(event: Event): void {
     const { checked } = target;
     changeBackground(checked);
     changeStatusText(checked);
-    checked ? stayAwake.enable() : stayAwake.disable();
+    checked ? nosleep.enable() : nosleep.disable();
   }
 }
 
@@ -81,16 +82,14 @@ function addRemoveClassesOfMultipleElements(
 window.addEventListener("DOMContentLoaded", () => {
   heroSection = document.getElementById("hero-section");
   navbar = document.getElementById("navbar");
-  highlightTexts = Array.from(
-    document.querySelectorAll(".secondary-highlight-text")
-  );
+  highlightTexts = Array.from(document.querySelectorAll(".highlight-text"));
   statusText = document.getElementById("screen-status");
 
   const switchElement: HTMLElement | null =
     document.getElementById("keep-awake-switch");
 
   if (switchElement) {
-    stayAwake.init();
+    nosleep.enable();
     switchElement.addEventListener("change", changeSwitch);
   }
 });

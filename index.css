@@ -84,3 +84,9 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media screen and (max-width: 768px) {
+  .info-box {
+    transform: translateY(0%);
+  }
+}

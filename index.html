@@ -50,7 +50,14 @@
         >
           <ul class="navbar-nav gap-5">
             <li class="nav-item">
-              <button type="button" class="btn btn-link nav-link">About</button>
+              <button
+                type="button"
+                class="btn btn-link nav-link"
+                data-bs-toggle="modal"
+                data-bs-target="#aboutModal"
+              >
+                About
+              </button>
             </li>
             <li class="nav-item">
               <a
@@ -95,6 +102,59 @@
           <span class="highlight-text">foreground</span> tab. If it's in the
           foreground you can even minimize it
         </p>
+      </div>
+    </div>
+
+    <!-- About - Modal -->
+    <div
+      class="modal fade"
+      id="aboutModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aboutModal">About Keep Awake</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              This project is based on
+              <a
+                href="https://nosleep.page/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >nosleep.page</a
+              >, the idea is the same but with the purpose of having a more
+              comfortable color scheme (I've opened a PR for that but I guess
+              the project is not being updated anymore). <br />Also, here is the
+              link to their
+              <a
+                href="https://github.com/bradleyjkemp/nosleep.page"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              if you want to check it.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
